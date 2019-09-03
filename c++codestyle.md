@@ -46,3 +46,13 @@
 ```
   foo/src/bar/baz.h
 ```
+可按如下方式保护：
+```
+  #ifndef FOO_BAR_BAZ_H_
+  #define FOO_BAR_BAZ_H_
+  ...
+  #endif //FOO_BAR_BAZ_H_
+```
+- ### include的路径及顺序
+
+使用标准的头文件包含顺序可增强可读性，避免隐藏依赖：相关头文件，C库，C++库，其他库的.h，本项目内.h
