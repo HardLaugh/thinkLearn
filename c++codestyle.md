@@ -62,7 +62,7 @@
 ```
   #include "base/logging.h"
 ```
-又如，`dir/foo.cc**或**dir/foo_test.cc` 的主要作用是实现或测试 `dir2/foo2.h` 的功能，`foo.cc` 中包含头文件的次序如下：
+又如，`dir/foo.cc`或`dir/foo_test.cc` 的主要作用是实现或测试 `dir2/foo2.h` 的功能，`foo.cc` 中包含头文件的次序如下：
 
 |顺序|头文件|
 |:----:|:-----:|
