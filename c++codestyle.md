@@ -58,11 +58,11 @@
 使用标准的头文件包含顺序可增强可读性，避免隐藏依赖：相关头文件，C库，C++库，其他库的.h，本项目内.h
 
 项目内头文件应按照项目源代码目录树结构排列，避免使用UNIX特殊的快捷目录.（当前目录）或..（上级目录）。例如
-**google-awesome-project/src/base/logging.h** 应该按如下方式包含：
+`google-awesome-project/src/base/logging.h` 应该按如下方式包含：
 ```
   #include "base/logging.h"
 ```
-又如，`**dir/foo.cc**或**dir/foo_test.cc**` 的主要作用是实现或测试 `**dir2/foo2.h**` 的功能，`**foo.cc**` 中包含头文件的次序如下：
+又如，`dir/foo.cc**或**dir/foo_test.cc` 的主要作用是实现或测试 `dir2/foo2.h` 的功能，`foo.cc` 中包含头文件的次序如下：
 
 |顺序|头文件|
 |:----:|:-----:|
