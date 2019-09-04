@@ -1,4 +1,9 @@
-> # **_YOLACT:Real-time Instance Segmentation_**
+> # Detection-Based
+
+- detecting：借助state-of-the-art的目标检测器框架
+- mask head：在目标检测框架基础上，附加mask branch
+***
+# **_YOLACT:Real-time Instance Segmentation_**
 ***
 基于一个简单的全卷积网络，在`MS COCO`数据集上单卡（`TitanXP`）实现`29.8map`，速度达到`33fps`。相比于目前现有的`state-of-the-art`的方法，速度明显快。
 
