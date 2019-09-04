@@ -77,4 +77,4 @@
 
 `dir/foo.cc`和`dir2/foo2.h`通常位于同一目录下（如`base/basictypes_unittest.cc`和`base/basictypes.h`），但也可以放在不同目录下。
 
-按字母顺序分别对每种类型的头文件进行二次排序是不错的主意。
+按字母顺序分别对每种类型的头文件进行二次排序是不错的主意。注意
