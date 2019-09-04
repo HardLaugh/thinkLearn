@@ -75,4 +75,4 @@
 这种优先的顺序保证当`dir2/foo2.h`遗漏某些必要的库时，`dir/foo.cc`或`dir/foo_test.cc`的构建会立刻中止因此这一条条规则保证维护这些文件的人优先看到
 构建中止的消息而不是其他包的消息。
 
-`dir/foo.cc`和`dir2/foo2.h`通常位于同一目录下
+`dir/foo.cc`和`dir2/foo2.h`通常位于同一目录下（如`base/basictypes_unittest.cc`和`base/basictypes.h`），但也可以放在不同目录下。
