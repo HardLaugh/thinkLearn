@@ -41,8 +41,3 @@
 
 > ### branch head
 对于prediction head branch，出了预测`classes`，`boxes`，增加一分支用于预测`prototype masks`的`mask coefficients`，也即是针对每一个预测框，网络共产生`4+c+k`个输出
-- class head
-
-- box head 
-
-- mask coefficient head
