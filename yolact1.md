@@ -23,3 +23,9 @@
   self.downsample_layers = nn.Conv2d(256, 256, kernel_size=3, padding=1, stride=2)
 ```
 
+> ### branch
+- class branch
+
+- box branch
+
+- mask branch
