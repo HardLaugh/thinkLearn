@@ -10,7 +10,7 @@
 ```
 
 > ### necks
-- FPN
+- `FPN`
 - `lateral` ：`[C3, c4, c5] ---> [P3, P4, P5] ---> [P3, P4, P5] + [P6, P7] `
 
 从P5层基础上附加额外尺度的特征层`[P6, P7]`
@@ -23,9 +23,16 @@
   self.downsample_layers = nn.Conv2d(256, 256, kernel_size=3, padding=1, stride=2)
 ```
 
-> ### branch
-- class branch
+> ### Protonet head
 
-- box branch
+- base结构: FCN, 全卷积层  
 
-- mask branch
+![protonet picture](./img/protonet.PNG)
+
+- 
+> ### branch head
+- class head
+
+- box head 
+
+- mask coefficient head
