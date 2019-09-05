@@ -25,10 +25,12 @@
 
 > ### Protonet head
 
-- base结构: FCN, 全卷积层  
+- base结构: FCN, 全卷积层
+- 输入`P3`
+- 最后一层输出`k channel`，形成`k`个`prototypes masks` 
 
-![protonet picture](./img/protonet.PNG)
-code  
+![protonet picture](./img/protonet.PNG)  
+>> pseudocode  
 ```
   nn.Conv2d(x, 256, 3, padding=1) * 3
   InterpolateModule(scale_factor=-2, mode='bilinear', align_corners=False)
