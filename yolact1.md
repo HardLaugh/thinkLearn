@@ -28,8 +28,14 @@
 - base结构: FCN, 全卷积层  
 
 ![protonet picture](./img/protonet.PNG)
+code  
+```
+  nn.Conv2d(x, 256, 3, padding=1) * 3
+  InterpolateModule(scale_factor=-2, mode='bilinear', align_corners=False)
+  nn.Conv2d(x, 256, 3, padding=1)
+  nn.Conv2d(x, 32, 1)
+```
 
-- 
 > ### branch head
 - class head
 
