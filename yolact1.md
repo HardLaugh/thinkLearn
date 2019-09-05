@@ -2,9 +2,10 @@
 
 > ### backbone
 
-- `ResNet`：`[C1, C2, C3, C4, C5]`
 - `image_size` : `[550, 550]`
-- 
+- `ResNet`：`[C1, C2, C3, C4, C5]`
+- `feature scale`：`[275, 138, 69, 35, 18]`
+- `feature stride`：`[2, 4, 8, 16, 32]`
 ```
 
 ```
@@ -24,14 +25,14 @@
 ```
 
 > ### Protonet head
-
-- base结构: FCN, 全卷积层
-- 输入`P3`
-- 最后一层输出`k channel`，形成`k`个`prototypes masks` 
-
 ![protonet picture](./img/protonet.PNG)  
+- base结构: FCN, 全卷积层
+- 输入为`P3`，也即backbone FPN features中最深分辨率最高的特征图
+- 最后一层输出`k channel`，形成`k`个`prototypes masks` 
+- 最后一层protonet的输出需要通过ReLu限制输出的大小  
 >> pseudocode  
 ```
+  # cfg :  [(256, 3, {'padding': 1})] * 3 + [(None, -2, {}), (256, 3, {'padding': 1})] + [(32, 1, {})]
   nn.Conv2d(x, 256, 3, padding=1) * 3
   InterpolateModule(scale_factor=-2, mode='bilinear', align_corners=False)
   nn.Conv2d(x, 256, 3, padding=1)
@@ -39,6 +40,7 @@
 ```
 
 > ### branch head
+对于prediction head branch，出了预测`classes`，`boxes`，增加一分支用于预测`prototype masks`的`mask coefficients`，也即是针对每一个预测框，网络共产生`4+c+k`个输出
 - class head
 
 - box head 
