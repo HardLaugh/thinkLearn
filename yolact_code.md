@@ -15,7 +15,7 @@ info, licenses, categories都不是必须的东西，但避免以后忘记这个
 - 相关的coco api介绍：  
 > - 
 接下来，以大华的养猪数据标注格式说明转换过程：  
-- 单个image对应一个`"images"`字段list一个元素，image下的每个annotation对应`"annotations"`字段list的一个元素，但通过唯一的image_id指向同一张图片
+- 单个image对应一个`"images"`字段list一个元素，image下的每个annotation对应`"annotations"`字段list的一个元素，不同的`annotation_id`但通过唯一的`image_id`指向同一张图片
 ```
   # 单个image_info
   create_image_info = {
