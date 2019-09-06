@@ -11,3 +11,4 @@
 - `MaskRcnn`：在roipooling之后的第二阶段附加`mask branch`，因此，自然而然的有了实例位置信息，不需要实例的位置定位。
 - `yolact`：yolact的最后阶段，通过预测的box框crop得出最后的`final mask`，这是网络唯一一处体现了平移变换特征，但作者发现yolact的方法，即使没有这最后一步的crop的步骤，对于medium和large的目标，一样能work。如下图所示：
 ![yolact](./img/yolact.PNG)
+- `Mask Quality`：large objects的masks质量高于`mask rcnn`，因为masks的生成直接从原图crop出来，不需要经过一系列repool和对齐变换。
