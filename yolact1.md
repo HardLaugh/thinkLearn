@@ -1,4 +1,5 @@
 ## 网络结构
+![model](./img/model.PNG)
 
 > ### backbone
 
