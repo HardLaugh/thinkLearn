@@ -15,17 +15,11 @@
 
 ## Fast NMS
 Fast NMS 一种能提高速度，却对模型最后性能影响微乎其微的NMS
-- `general NMS`：对于每一个类别，按照置信度从大到小排序，然后，对于其中的每一个检测，丢掉置信度比其低，但IoU却大于一定阈值的检测。
-- `Fast NMS`：
-
-## 文章相关
-
-`FCN`通常用于像素级分类，图像中属于同一类别的像素归为一个类别，这意味着具有平移不变性，然而实例分割需要平移变换，类似于FCIS，MaskRcnn，Mask Scoring R-CNN尝试显示的提供平移变换特征：
-- `FCIS`：位置敏感特征图
-![FCIS](./img/FCIS.PNG)
-- `MaskRcnn`：在roipooling之后的第二阶段附加`mask branch`，因此，自然而然的有了实例位置信息，不需要实例的位置定位。
-- `yolact`：yolact的最后阶段，通过预测的box框crop得出最后的`final mask`，这是网络唯一一处体现了平移变换特征，但作者发现yolact的方法，即使没有这最后一步的crop的步骤，对于medium和large的目标，一样能work。如下图所示：
-![yolact](./img/yolact.PNG)
+- `traditional NMS`：对于每一个类别，按照置信度从大到小排序，然后，对于其中的每一个检测，丢掉置信度比其低，但IoU却大于一定阈值的检测。对于30fps而言，花费大于5fps时间的NMS也是一大阻碍。
+- `Fast NMS`：整体思路是通过矩阵实现。`traditional NMS`实现上是串行实现的，为了能够并行化，只需要允许已经被removed掉的检测液参与抑制，这在`traditional NMS`是不存在的。
+> - 首先，针对类别c，对于每个类别，按置信度从大到小选出n个detections，然后通过向量化的python技巧，可以求出IoU矩阵，因此，获得了IoU矩阵的维度为`c * n * n`；
+> - 把IoU矩阵的下三角包括对角线置为0；
+> - 求column-wise最大值k，设定t为阈值，满足(k < t)的检测都保留
 
 
 
