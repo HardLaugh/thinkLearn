@@ -1,9 +1,12 @@
 > ### config.py相关配置介绍
-- warmup learning schedule：训练开始时，从较低的学习率线性增加到正式训练采用的学习率，相关参数为：lr_warmup_init, lr_warmup_until, lr。
-- `mask_proto_net`：`prototype head`分支的网络结构cfg
-- `extra_head_net`：`prediction head`分支的配置，是否额外增加更多的conv层
+- `warmup learning schedule`：训练开始时，从较低的学习率线性增加到正式训练采用的学习率，相关参数为：`lr_warmup_init`, `lr_warmup_until, lr`。
+- `mask_proto_net`：`protonet head`分支的网络结构cfg
+- `extra_head_net`：`prediction head`分支的配置，是否额外增加更多的conv层。
 - `use_semantic_segmentation_loss`：是否在P3上附加额外的语义分割任务
-- `mask_proto_use_grid`：从代码来看是一种额外附加到`prototype head`网络分支输入上的网格特征，实现是是直接和`P3 feature Map`concat一起，猜测是想提供某种类似FCIS的位置敏感特征信息。默认是关，意义不明。相关参数：`mask_proto_use_grid`，`mask_proto_use_grid`。
+- `mask_proto_use_grid`：从代码来看是一种额外附加到`protonet head`网络分支输入上的网格特征，实现是是直接和`P3 feature Map`concat一起，猜测是想提供某种类似FCIS的位置敏感特征信息。默认是关，意义不明。相关参数：`mask_proto_use_grid`，`mask_proto_use_grid`。
 - `mask_proto_prototypes_as_features`：是否把`prototype head`网络分支输出的feature(未经过激活函数)按concat的方式附加到输入`prediction head`的featureMap上。相关参数：`mask_proto_prototypes_as_features`，`mask_proto_prototypes_as_features_no_grad`。
 - `use_class_existence_loss`：类似于`use_semantic_segmentation_loss`的多任务学习，在FPN的P7 featureMap上添加global pool + fc layer用于多标签分类训练，预测类别是否存在。
+- `use_yolo_regressors`：是否采用yolo系列的bounding box坐标回归方式。
+- `use_focal_loss`：是否使用kaiming he的focal loss计算；相关参数`focal_loss_alpha`、`focal_loss_gamma`、`focal_loss_init_pi`。
+- `mask_proto_crop`和`mask_proto_crop_expand`：训练的时候，用预测的bounding box crop the mask；`mask_proto_crop_expand`：cropping的时候们为了促使模型不过分依赖精确地bounding box预测，可沿着4个方向延伸的百分比
 - todo
