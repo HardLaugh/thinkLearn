@@ -1,6 +1,6 @@
 ## source code 相关
 作者的源码总体上和`mmdetection`类似
-> ### 第一步：convert to cocodataset
+> ### 第一步：转换成coco数据格式
 - `coco data fromat`：coco数据格式为`JSON`，总体上分为几个大字段，主要以分割和目标检测为主，分别是：
 ```
 {
@@ -11,6 +11,7 @@
    "annotations": [annotation]
 }
 ```
+info, licenses, categories都不是必须的东西，但避免以后忘记这个cocodata是做什么用的，最好加一些相关信息，诸如什么时间，做什么类型训练用的数据
 - 相关的coco api介绍：  
 > - 
 接下来，以大华的养猪数据标注格式说明转换过程：  
