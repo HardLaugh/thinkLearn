@@ -22,10 +22,6 @@
     "file_name": file_name,
     "width": image_size[0],
     "height": image_size[1],
-    "date_captured": date_captured,
-    "license": license_id,
-    "coco_url": coco_url,
-    "flickr_url": flickr_url
 }
 ```
 ```
