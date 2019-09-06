@@ -44,5 +44,5 @@ yolact_resnet50_pig_config = yolact_base_config.copy({
 ```
 以上面代码为例，从config中找到相关的自己想要训练的模型base，继承出上面的`yolact_resnet50_pig_config`模型配置信息
 
-- train.py 文件：需要注意的几个参数：1. 受限于docker的sharedmemory，num_workers必须为0；2. config = yolact_resnet50_pig_config；3. 模型有DataParallel的代码，注意你运行环境的可行性。
-运行train.py 基本上就可以跑起来了，最多就是需要调试一下图片路径的信息
+- train.py 文件：需要注意的几个参数：1. 受限于docker的sharedmemory，`num_workers=0`；2. `config=yolact_resnet50_pig_config`；3. 模型有`DataParallel`的代码，注意你运行环境的可行性。
+运行`train.py` 基本上就可以跑起来了，最多就是需要调试一下图片路径的信息
