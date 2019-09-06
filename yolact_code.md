@@ -29,7 +29,7 @@
   create_annotation_info = {
     "id": annotation_id,
     "image_id": image_id,
-    "category_id": category_info["id"],
+    "category_id": category_info["id"], # label_id
     "iscrowd": is_crowd,
     "area": area.tolist(),
     "bbox": bounding_box.tolist(),
