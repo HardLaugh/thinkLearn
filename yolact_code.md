@@ -48,7 +48,7 @@ info, licenses, categories都不是必须的东西，但避免以后忘记这个
       image_info = create_image_info
       coco_output["images"].append(image_info)
       
-      for per_anno in per_anns_info:
+      for per_anno in per_anns_path:
           annotation_info = create_annotation_info
           annotation_id += 1
           coco_output["annotations"].append(annotation_info)
