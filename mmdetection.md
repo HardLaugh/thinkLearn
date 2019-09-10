@@ -26,7 +26,7 @@ rpn_head 继承base类AnchorHead的_init_()初始化,而AnchorHead初始化的�
 
 - 针对每一个anchor_base(featMap对应）生成一个AnchorGenerator生成器  
 AnchorGenerator的主要思想是用gen_base_anchors生成featMap的单个grid包含的`base_anchors`(其实就是最左上角的grid cell的anchors作为基础anchors)，最后在`grid_anchors`中shift `base_anchors`到所有grid cell，具体有如下几个类函数：  
-1. gen_base_anchors：以上述cfg为例，想根据stide定义中心坐标
+1. gen_base_anchors：以上述cfg为例，先根据stide定义中心坐标
 ```
   w = h = stride
   # center坐标
@@ -47,7 +47,6 @@ base_anchors = torch.stack(
             ],
             dim=-1).round()
 ```
-
 
 
 
