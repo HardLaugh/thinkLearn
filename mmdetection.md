@@ -33,3 +33,25 @@ AnchorGenerator的主要思想是用gen_base_anchors生成featMap的单个grid�
   x_ctr = 0.5 * (w - 1)
   y_ctr = 0.5 * (h - 1)
 ```
+接下来，计算所有可能的anchors的[ws, hs]，通过broadcast机制很容易得到，如下所示, 假设`w_ratios = [a,b,c]`, `h_ratios =[d,e,f]`，`scales = [s]`
+```
+  ws = (w * w_ratios[:, None] * self.scales[None, :]).view(-1)
+  hs = (h * h_ratios[:, None] * self.scales[None, :]).view(-1)
+```
+扩展`w_ratios`为`[3, 1]`, `scales`为`[1, 1]`，则`w_ratios[:, None] * self.scales[None, :] = [3, 1]，分别为[[a*s,], [b*s,], [c*s,]]`，接着reshape为[3,]，最后通过下述代码，形成`base_anchors`，也即是根据中心坐标计算出anchors的左上角和右下角坐标
+```
+base_anchors = torch.stack(
+            [
+                x_ctr - 0.5 * (ws - 1), y_ctr - 0.5 * (hs - 1),
+                x_ctr + 0.5 * (ws - 1), y_ctr + 0.5 * (hs - 1)
+            ],
+            dim=-1).round()
+```
+
+
+
+
+
+
+
+
