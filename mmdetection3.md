@@ -41,5 +41,12 @@ results['img'] = img
 results['img_shape'] = img.shape
 results['ori_shape'] = img.shape
 ```
-- `LoadAnnotations`：根据设置的`with_{bboxes, label, mask, seg}`，从`anno_info`返回
+- `LoadAnnotations`：根据设置的`with_{bboxes, label, mask, seg}`，从`anno_info`返回各种标注信息
+```
+results['gt_bboxes'] 
+results['gt_labels']
+results['gt_masks']
+results['gt_semantic_seg']
+
+```
 
