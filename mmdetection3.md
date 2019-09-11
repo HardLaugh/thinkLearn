@@ -1,3 +1,3 @@
-# bbox_head和 Anchorhead的区别
-
+# bbox_head
+bbox_head抽象出来两个head，分别是bbox_head和Anchorhead
 bbox_head 是针对two_stage的第二阶段建立的，也就是没有anchor了，而anchorhead是建立在比如rpn，ssh，retina，yolo等经过fpn后的featMap上
