@@ -20,5 +20,4 @@ dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels']),
 meta_keys=('filename', 'ori_shape', 'img_shape', 'pad_shape',
                             'scale_factor', 'flip', 'img_norm_cfg')):
 ```
-目前为止上述的所有都是针对单张图片，也即是data表示一张图片的相关信息
-
+目前为止上述的所有都是针对单张图片，也即是data表示一张图片的相关信息，data总共包含上面的keys设置的关键词和`img_meta`关键词
