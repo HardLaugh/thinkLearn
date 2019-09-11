@@ -34,5 +34,12 @@ results['bbox_fields'] = []
 results['mask_fields'] = []
 ```
 进入pipeline：
-
+- `LoadImageFromFile`：从`preresult`中读取`img_prefix`和`img_info`中的`filename`组合成最终文件的绝对路径`filename`，然后形成如下`dict key`：
+```
+results['filename'] = filename
+results['img'] = img
+results['img_shape'] = img.shape
+results['ori_shape'] = img.shape
+```
+- `LoadAnnotations`：根据设置的`with_{bboxes, label, mask, seg}`，从`anno_info`返回
 
