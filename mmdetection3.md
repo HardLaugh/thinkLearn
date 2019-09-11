@@ -47,6 +47,7 @@ results['gt_bboxes']
 results['gt_labels']
 results['gt_masks']
 results['gt_semantic_seg']
-
+results['bbox_fields'].extend(['gt_bboxes', 'gt_bboxes_ignore'])
+results['mask_fields'].append('gt_masks')
 ```
 
