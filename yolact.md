@@ -103,6 +103,9 @@ Fast NMS 一种能提高速度，却对模型最后性能影响微乎其微的NM
 - `Mask Quality`：large objects的masks质量高于`mask rcnn`，因为masks的生成直接从原图crop出来，不需要经过一系列repool和对齐变换。
 - `帧间稳定性`：即使训练时候是静态图，但相比二阶段目标分割网络，yolact的帧间稳定性更好，原因应该是yolact是one stage网络，而two-stage是高度依赖于一阶段的region proposals。
 
+- yolact的缺点：
+> - `localization failure`：图像中某个地方包含多个目标(比如：large目标包含small目标)
+> - `leakage`：`final mask`的生成是在`prototypes masks`组合合成后利用预测的box框crop出来的，这其中并没有对crop region区域外的noise进行处理。当框预测准确的时候，`final mask`的效果较好，然而框预测不准确的时候，就会发生crop region区域外noise识别为mask，造成所谓的`leakage`。
 
 
 
