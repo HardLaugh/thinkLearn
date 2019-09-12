@@ -21,3 +21,8 @@ meta_keys=('filename', 'ori_shape', 'img_shape', 'pad_shape',
                             'scale_factor', 'flip', 'img_norm_cfg')):
 ```
 目前为止上述的所有都是针对单张图片，也即是data表示一张图片的相关信息，data总共包含上面的keys设置的关键词和`img_meta`关键词
+
+
+## dataset 和groupsampler
+
+- `groupsampler`把`image_size`的aspect ratio 大于1的分成一组， 小于1的成一组，共两个group组，然后每个group的图片数量补足成能整除`sampers_per_gpu`的数量，之后，按组shuffle，也即是每个batch的图片要么都是来自第一组，要么都是来自第二组。完成这步关键的参数和函数有: dataset.flag
